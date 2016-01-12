@@ -13,6 +13,7 @@ Prior to setting up OpenUnison create a directory on your Docker host for the Op
 
 ```bash
 $ mkdir -p /etc/openunison
+$ mkdir -p /etc/tomcat
 ```
 
 Next, create the /etc/openunison/unisonService.props file based on the below template:
@@ -298,7 +299,7 @@ server.testuser.admin.config.uid=test
 server.testuser.admin.config.password=test
 ```
 
-## Create the Tomcat /etc/openunison/server.xml File
+## Create the Tomcat /etc/tomcat/server.xml File
 
 The below server.xml file is tested with the OpenUnison image.  It points to the /etc/openunison/unisonKeystore.jks file and the unison-tls key generated earlier.  Make sure to replace the password with what you used to protect the unisonKeystore.jks file.
 
@@ -371,7 +372,7 @@ The below server.xml file is tested with the OpenUnison image.  It points to the
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector port="#[OPENUNISON_PT_PORT]" protocol="HTTP/1.1"
+    <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
     <!-- A "Connector" using the shared thread pool-->
@@ -387,7 +388,7 @@ The below server.xml file is tested with the OpenUnison image.  It points to the
          OpenSSL style configuration is required as described in the APR/native
          documentation -->
 
-    <Connector port="#[OPENUNISON_ENC_PORT]" protocol="org.apache.coyote.http11.Http11NioProtocol"
+    <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="want" sslProtocol="TLS" keystoreFile="/etc/openunison/unisonKeyStore.jks" keystoreType="JCEKS" keystorePass="start123" keyAlias="unison-tls"/>
 
@@ -445,4 +446,11 @@ The below server.xml file is tested with the OpenUnison image.  It points to the
     </Engine>
   </Service>
 </Server>
+```
+
+## Run the Docker Image
+Once all of the configuraiton files are deployed to the host, run the docker image:
+
+```bash
+$ 
 ```
