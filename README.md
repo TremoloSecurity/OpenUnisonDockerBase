@@ -452,5 +452,5 @@ The below server.xml file is tested with the OpenUnison image.  It points to the
 Once all of the configuraiton files are deployed to the host, run the docker image:
 
 ```bash
-$ 
+$ docker  run -ti -p 8080:8080 -p 8443:8443  -v /etc/openunison/:/etc/openunison/ -v /etc/tomcat/server.xml:/usr/local/tomcat/conf/server.xml   tremolosecurity/openunison:1.0.6
 ```
