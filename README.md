@@ -7,6 +7,8 @@ This file builds the base image for OpenUnison.  There are two options for deplo
 
 The first choice is the easiest for getting up and running, but offers several challenges for deployments and security (how do you secure artifacts? how do you store passwords?).  The second option makes for a more manageable deployment, but requires more steps.  See the OpenUnisonDockerDeploy project for details on how to deploy OpenUnison using the deploy Dockerfile.
 
+For details on how to configure OpenUnison - https://www.tremolosecurity.com/docs/tremolosecurity-docs/1.0.6/openunison/openunison.html
+
 ## Create OpenUnison Files on the Host System
 
 Prior to setting up OpenUnison create a directory on your Docker host for the OpenUnison configuration files and for the Tomcat configuration file.  For the sake of simplicity, we'll asssume that all configuration files will go into /etc/openunison:
