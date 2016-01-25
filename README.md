@@ -9,6 +9,10 @@ The first choice is the easiest for getting up and running, but offers several c
 
 For details on how to configure OpenUnison - https://www.tremolosecurity.com/docs/tremolosecurity-docs/1.0.6/openunison/openunison.html
 
+## Environment Variables and System Properties
+
+OpenUnison will interpret any configuration options between #[] as either an environment variable or a system property (environment variable first, then if not an environment variable it will be checked for as a system property).
+
 ## Create OpenUnison Files on the Host System
 
 Prior to setting up OpenUnison create a directory on your Docker host for the OpenUnison configuration files and for the Tomcat configuration file.  For the sake of simplicity, we'll asssume that all configuration files will go into /etc/openunison:
