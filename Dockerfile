@@ -13,7 +13,7 @@ RUN useradd openunison ; \
     rm -rf /usr/local/tomcat/webapps/* ; \
     mkdir /etc/openunison ; \
     chown -R openunison:openunison /etc/openunison ; \
-    curl $OPEN_UNISON_WAR_URL -o /tmp/openunison.zip ; \
+    wget $OPEN_UNISON_WAR_URL -o /tmp/openunison.zip ; \
     mkdir /usr/local/tomcat/webapps/ROOT ; \
     unzip /tmp/openunison.zip -d /usr/local/tomcat/webapps/ROOT/ ; \
     rm /usr/local/tomcat/webapps/ROOT/WEB-INF/log4j.xml ; \
